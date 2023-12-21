@@ -26,11 +26,13 @@ app.get("/:room", (req, res) => {
 
 io.on("connection", (socket) => {
   socket.on("join-room", (roomId, userId, userName) => {
+    console.log("user JOined",userName)
     socket.join(roomId);
     setTimeout(()=>{
       socket.to(roomId).broadcast.emit("user-connected", userId);
     }, 1000)
     socket.on("message", (message) => {
+      console.log("received messafe",message)
       io.to(roomId).emit("createMessage", message, userName);
     });
   });
