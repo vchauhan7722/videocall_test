@@ -25,6 +25,7 @@ app.get("/:room", (req, res) => {
 });
 
 io.on("connection", (socket) => {
+  console.log("inside 28")
   socket.on("join-room", (roomId, userId, userName) => {
     console.log("user JOined",userName)
     socket.join(roomId);

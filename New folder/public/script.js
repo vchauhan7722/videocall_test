@@ -22,7 +22,7 @@ showChat.addEventListener("click", () => {
 const user = prompt("Enter your name");
 
 var peer = new Peer({
-  host: '52.41.36.82',
+  host: '127.0.0.1',
   port: 3030,
   path: '/peerjs',
   config: {
@@ -51,6 +51,9 @@ var peer = new Peer({
 
   debug: 3
 });
+
+
+console.log("peer",peer)
 
 let myVideoStream;
 navigator.mediaDevices
